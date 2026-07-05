@@ -19,6 +19,10 @@ ZH_PATTERNS = [
     ("medium", "empty ending", r"(综上所述|由此可见|有待进一步研究|具有重要意义)"),
     ("medium", "connector overuse", r"(值得注意的是|需要指出的是|与此同时|具体而言|具体来说)"),
     ("medium", "paired contrast", r"(不是.{0,24}而是.{0,24}|即使.{0,24}也.{0,24})"),
+    ("medium", "abstract noun chain", r"([\u4e00-\u9fff]{2,}(机制|体系|路径|框架|模式|维度|结构)[的之]?){2,}"),
+    ("medium", "paragraph-final meta commentary", r"(上述|这一|该)(结果|结论|发现|分析).{0,16}(表明|说明|揭示|印证|提供)"),
+    ("medium", "fixed term subject", r"^(逆向技术溢出|中介效应|固定效应|互补效应|调节效应|稳健性检验).{0,18}(表明|说明|体现|转化|影响)"),
+    ("medium", "parallel exposition", r"(从.{1,12}(看|来看).{0,36}){2,}|(一方面.{0,50}另一方面.{0,50}(同时|此外)?)"),
 ]
 
 EN_PATTERNS = [
@@ -46,10 +50,37 @@ def parse_args() -> argparse.Namespace:
 
 def read_text(args: argparse.Namespace) -> str:
     if args.stdin:
-        return sys.stdin.read()
+        return read_stdin_text()
     if not args.path:
         raise SystemExit("Provide a file path or use --stdin.")
     return Path(args.path).read_text(encoding="utf-8-sig")
+
+
+def read_stdin_text() -> str:
+    if not hasattr(sys.stdin, "buffer"):
+        return sys.stdin.read()
+
+    data = sys.stdin.buffer.read()
+    if not data:
+        return ""
+
+    encodings = ["utf-8-sig", "utf-8"]
+    if sys.stdin.encoding:
+        encodings.append(sys.stdin.encoding)
+    encodings.extend(["gb18030", "utf-16", "utf-16-le"])
+
+    seen = set()
+    for encoding in encodings:
+        normalized = encoding.lower().replace("_", "-")
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        try:
+            return data.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+
+    return data.decode("utf-8", errors="replace")
 
 
 def detect_language(text: str) -> str:
@@ -78,9 +109,13 @@ def token_length(sentence: str) -> int:
     return len(tokens)
 
 
+def split_sentences(text: str) -> list[str]:
+    parts = re.split(r"[。！？!?]+|(?<!\d)\.(?!\d)\s*", text)
+    return [part.strip() for part in parts if token_length(part) > 0]
+
+
 def sentence_lengths(text: str) -> list[int]:
-    parts = re.split(r"[。！？!?]+|(?<=[.])\s+", text)
-    lengths = [token_length(part) for part in parts if token_length(part) > 0]
+    lengths = [token_length(part) for part in split_sentences(text)]
     return lengths
 
 

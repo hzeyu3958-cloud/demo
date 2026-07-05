@@ -1,13 +1,20 @@
 ---
 name: academic-humanizer
-description: Revise Chinese and English academic prose to reduce obvious AI-writing traces while preserving facts, citations, terminology, structure, and academic register. Use when Codex needs to humanize, de-template, or polish papers, theses, literature reviews, methods/results/discussion sections, or technical reports, especially when the user asks to lower AIGC rate, remove AI tone, 去AI味, 降AIGC, 论文润色, or rewrite detector-prone text without inventing evidence.
+description: >
+  Revise Chinese and English academic prose to reduce obvious AI-writing traces while preserving facts,
+  citations, terminology, structure, and academic register. Strongly supports Chinese academic-paper
+  scenarios such as CNKI AIGC checks, red/high-risk detector passages, thesis paragraph rewriting,
+  literature reviews, methods/results/discussion sections, and technical reports. Use when the user asks
+  to lower AIGC rate, reduce AI rate, remove AI tone, humanize academic writing, revise detector-prone
+  text, or says 去AI味, 降AIGC, 知网AIGC, AI率, 红色显著, 论文降AI, 论文润色, 毕业论文, 硕博论文,
+  中文学术段落改写, or 降低AI查重误判.
 ---
 
 # Academic Humanizer
 
 ## Overview
 
-Revise academic prose so it reads like careful human writing rather than templated model output. Prefer specific, disciplined edits over sweeping paraphrase.
+Revise academic prose so it reads like careful human writing rather than templated model output. Prefer specific, disciplined edits over sweeping paraphrase. Treat detector reduction as a writing-quality task, not a promise to bypass any particular platform.
 
 ## Non-negotiables
 
@@ -19,7 +26,8 @@ Revise academic prose so it reads like careful human writing rather than templat
 
 ## Choose the path
 
-- Read `references/chinese-academic.md` when the text is mostly Chinese or when the user asks for 去AI味, 降AIGC, 论文润色, or 中文学术改写.
+- Read `references/workflow.md` for long text, file-based work, CNKI/AIGC report passages, or batch paragraph selection.
+- Read `references/chinese-academic.md` when the text is mostly Chinese or when the user asks for 去AI味, 降AIGC, 知网AIGC, AI率, 红色显著, 论文润色, or 中文学术改写.
 - Read `references/english-academic.md` when the text is mostly English or when the user asks to humanize, de-template, or polish English academic writing.
 - If the document is mixed, handle each paragraph in its dominant language.
 - If the user provides a writing sample, match its rhythm, transition habits, level of directness, and preferred degree of author presence.
@@ -32,6 +40,7 @@ For long text, file-based work, or uncertain cases, run the scanner before rewri
 python scripts/pattern_scan.py <path-to-text-file>
 python scripts/pattern_scan.py <path-to-text-file> --json
 Get-Content <path-to-text-file> | python scripts/pattern_scan.py --stdin
+python -X utf8 scripts/pattern_scan.py <path-to-text-file>
 ```
 
 Treat the scanner as a heuristic, not a verdict. Use it to locate likely trouble spots, then apply judgment.
@@ -72,5 +81,6 @@ Only include a draft version, detailed change log, or paragraph-by-paragraph not
 ## Resources
 
 - `scripts/pattern_scan.py`: heuristic scanner for common Chinese and English AI-writing patterns.
+- `references/workflow.md`: routing, batch handling, and self-audit workflow for Chinese AIGC/CNKI-style scenarios.
 - `references/chinese-academic.md`: Chinese academic rewriting guide with register constraints and high-risk patterns.
 - `references/english-academic.md`: English academic rewriting guide with high-risk patterns and section-specific advice.

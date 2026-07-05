@@ -1,13 +1,35 @@
 # Chinese academic rewriting guide
 
-Read this file when the text is mostly Chinese or when the request is about 去AI味, 降AIGC, 论文润色, 学术改写, or 中文学术表达.
+Read this file when the text is mostly Chinese or when the request is about 去AI味, 降AIGC, 知网AIGC, AI率, 红色显著, 论文润色, 学术改写, or 中文学术表达.
 
 ## Keep these constraints
 
 - Preserve facts, data, formulas, citations, terminology, and the original claim strength.
+- Preserve numbers, percentages, p values, coefficients, variables, years, author names, table/figure references, and citation markers exactly.
+- Preserve model names and accepted field terms. Do not replace terms such as `固定效应`, `中介效应`, `稳健性检验`, `逆向技术溢出`, or `互补效应` only for stylistic variety.
 - Preserve academic register. Allow controlled directness, but do not drift into spoken Chinese or internet slang.
 - Keep `本文` / `本研究` / `笔者` only when the genre and source text support them.
 - Prefer concrete observations and mechanisms over ceremonial phrasing.
+- Do not add new causes, samples, data, sources, limitations, future work, or conclusions.
+
+## CNKI-style paragraph handling
+
+For paragraphs reported as `红色显著`, `疑似`, or high `AI率`, prioritize structural edits over synonym replacement.
+
+For one short paragraph, identify the 2 to 4 most important risks and revise directly.
+
+For a long section, rank paragraphs first. Do not rewrite the whole section in one pass unless the user explicitly asks for full-section treatment.
+
+When reporting risks, use paragraph labels such as:
+
+- theory-first opening
+- abstract noun chain
+- paragraph-final meta commentary
+- even triad or parallel exposition
+- data-reporting boilerplate
+- vague attribution
+- fixed term position
+- generic significance ending
 
 ## Prioritize these fixes
 
@@ -148,6 +170,73 @@ Prefer:
 - Introduce mild variation in cadence.
 - Insert one short sentence when it sharpens the point, but stay formal.
 
+### 11. Abstract noun chains
+
+Risk patterns:
+
+- `传导机制的动态监测体系`
+- `创新能力转化路径`
+- `多维协同治理框架`
+- `高质量发展赋能机制`
+
+Prefer:
+
+- Convert stacked nouns into actor-action-object relations.
+- Keep the technical term if it is a field term, but make the sentence say what changes, who does it, or where it appears.
+
+### 12. Paragraph-final meta commentary
+
+Risk patterns:
+
+- `上述结果表明`
+- `这一结论说明`
+- `该发现为后续研究提供了依据`
+- `这一分析具有重要意义`
+
+Prefer:
+
+- End with the concrete difference, boundary, or unresolved point already supported by the paragraph.
+- Delete final summary sentences when they only restate the paragraph.
+
+### 13. Fixed term position
+
+Risk patterns:
+
+- A technical term repeatedly appears as the grammatical subject.
+- Adjacent sentences share the same `术语 + 动词 + 抽象宾语` structure.
+
+Prefer:
+
+- Move the term into topic, object, or condition position when meaning permits.
+- Keep the term itself stable.
+
+### 14. Parallel exposition plus closing summary
+
+Risk patterns:
+
+- `从X看……从Y看……从Z看……`
+- `一方面……另一方面……同时……`
+- Several equally long clauses followed by `因此/由此可见/综上`.
+
+Prefer:
+
+- Give the strongest point more space.
+- Merge or shorten weaker points.
+- Let the paragraph end on a specific analytical observation instead of a generic summary.
+
+### 15. Over-correction into casual prose
+
+Risk patterns:
+
+- The rewrite removes all academic connectors.
+- The paragraph starts to sound like commentary, blog writing, or spoken explanation.
+- Phrases such as `说白了`, `其实就是`, `很明显`, or `绕不开的坎` appear in formal thesis prose.
+
+Prefer:
+
+- Keep a few restrained academic connectors such as `因此`, `鉴于`, `相较而言`, `二者`, `在此基础上`, or `这意味着`.
+- Use controlled author judgment without colloquial performance.
+
 ## Keep the register academic
 
 Allowed:
@@ -175,6 +264,11 @@ Avoid:
 | `实验结果表明` | `结果显示` / `该结果提示` |
 | `未来研究可进一步` | `本文暂未覆盖……` / state the concrete next question |
 | `综上所述` | delete or replace with a precise closing claim |
+| `上述结果表明` | state the concrete result directly |
+| `为后续研究提供参考` | name the specific unresolved question |
+| `传导机制较为契合` | explain which relation is consistent with which evidence |
+| `在统计推断意义上获得支持` | `样本结果支持这一判断` |
+| `从X角度来看` | make X the topic only when it carries real analytical weight |
 
 ## Section tips
 
