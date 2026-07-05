@@ -1,0 +1,7 @@
+interface:
+  display_name: "Academic Humanizer"
+  short_description: "Reduce AI-writing traces in CN/EN academic prose"
+  default_prompt: "Use $academic-humanizer to revise this Chinese or English academic text so it reads naturally, keeps academic rigor, and preserves facts, citations, and terminology."
+
+policy:
+  allow_implicit_invocation: true
