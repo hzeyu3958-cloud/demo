@@ -1,6 +1,6 @@
 # English academic rewriting guide
 
-Read this file when the text is mostly English or when the request is about humanizing, de-templating, lowering detector-prone signals, or polishing academic prose.
+Read this file when the text is mostly English and the request is about humanizing, de-templating, or lowering detector-prone academic signals. For ordinary English academic polishing, copyediting, proofreading, grammar correction, or clarity improvement, read `polishing.md` first and use this file only for detector-prone patterns.
 
 ## Keep these constraints
 

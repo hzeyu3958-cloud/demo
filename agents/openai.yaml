@@ -1,7 +1,7 @@
 interface:
   display_name: "Academic Humanizer"
-  short_description: "Revise CN/EN academic prose and Chinese AIGC-risk passages"
-  default_prompt: "Use $academic-humanizer to revise this Chinese thesis or academic passage flagged for AI-writing risk. Keep facts, citations, terminology, numbers, and academic register stable."
+  short_description: "Polish CN/EN academic prose and revise AIGC-risk passages"
+  default_prompt: "Use $academic-humanizer to polish or revise this Chinese or English academic passage. Keep facts, citations, terminology, numbers, and academic register stable."
 
 policy:
   allow_implicit_invocation: true

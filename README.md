@@ -1,10 +1,12 @@
 # Academic Humanizer
 
-`academic-humanizer` is a Codex-compatible skill for revising Chinese and English academic prose so it reads more natural and less templated while preserving facts, citations, terminology, and academic register.
+`academic-humanizer` is a Codex-compatible skill for polishing and revising Chinese and English academic prose while preserving facts, citations, terminology, and academic register.
 
 ## What it does
 
-- Reduces obvious AI-writing traces in CN/EN academic text
+- Polishes Chinese and English academic writing for grammar, clarity, concision, and flow
+- Supports normal academic proofreading, copyediting, journal-style language editing, and thesis polishing
+- Reduces obvious AI-writing traces in CN/EN academic text when explicitly requested
 - Handles Chinese thesis/CNKI-style AIGC wording risks such as AI rate, red/high-risk passages, and detector-prone academic paragraphs
 - Preserves structure, terminology, formulas, citations, and claim strength
 - Includes separate Chinese and English rewriting guides
@@ -20,6 +22,7 @@
 |- references/
 |  |- chinese-academic.md
 |  |- english-academic.md
+|  |- polishing.md
 |  |- workflow.md
 |- scripts/
 |  |- pattern_scan.py
@@ -64,6 +67,14 @@ Or, with a different Codex home, run the same `quick_validate.py` from your inst
 Example prompt:
 
 ```text
+Use $academic-humanizer to polish this English abstract for clarity and academic style while preserving the original meaning.
+```
+
+```text
+Use $academic-humanizer 帮我润色这段中文论文内容，保持事实、术语、引用和学术语体不变。
+```
+
+```text
 Use $academic-humanizer to revise this Chinese thesis paragraph flagged as high AI risk. Keep facts, citations, terminology, and academic register.
 ```
 
@@ -87,5 +98,5 @@ python -m unittest discover -s tests
 ## Notes
 
 - This skill focuses on rewriting quality and register control.
-- It is designed for academic papers, theses, literature reviews, methods, results, discussions, and technical reports.
+- It is designed for academic papers, theses, literature reviews, abstracts, methods, results, discussions, conclusions, and technical reports.
 - It does not guarantee a specific detector score. Treat scanner output as a writing-risk locator, not a detector verdict.

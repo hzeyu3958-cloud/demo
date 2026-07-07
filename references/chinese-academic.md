@@ -1,6 +1,6 @@
 # Chinese academic rewriting guide
 
-Read this file when the text is mostly Chinese or when the request is about 去AI味, 降AIGC, 知网AIGC, AI率, 红色显著, 论文润色, 学术改写, or 中文学术表达.
+Read this file when the text is mostly Chinese and the request is about 去AI味, 降AIGC, 知网AIGC, AI率, 红色显著, detector-prone academic writing, or 中文学术改写. For ordinary Chinese academic polishing, read `polishing.md` first and use this file only for Chinese-specific register constraints.
 
 ## Keep these constraints
 
