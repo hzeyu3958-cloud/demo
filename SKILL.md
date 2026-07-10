@@ -1,13 +1,11 @@
 ---
 name: academic-humanizer
 description: >
-  Revise and polish Chinese and English academic prose while preserving facts, citations, terminology,
-  structure, and academic register. Supports normal bilingual academic polishing, grammar correction,
-  clarity improvement, journal-style language editing, thesis polishing, and Chinese academic-paper AIGC
-  risk reduction. Use when the user asks to polish, copyedit, proofread, improve clarity, improve flow,
-  revise academic writing, lower AIGC rate, reduce AI rate, remove AI tone, humanize academic writing,
-  revise detector-prone text, or says 润色, 语言润色, 学术润色, 表达优化, 修改病句, 语法修改, 去AI味,
-  降AIGC, 知网AIGC, AI率, 红色显著, 论文降AI, 论文润色, 毕业论文, 硕博论文, 中文学术段落改写, or 降低AI查重误判.
+  Revise and polish Chinese and English academic prose while preserving facts, citations,
+  terminology, and academic register. Supports proofreading, copyediting, journal-style language
+  editing, thesis polishing, and CN-style AIGC risk reduction. Detailed trigger words and routing
+  live in `references/polishing.md`, `references/workflow.md`, `references/chinese-academic.md`,
+  and `references/english-academic.md`.
 ---
 
 # Academic Humanizer

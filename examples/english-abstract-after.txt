@@ -1,0 +1,5 @@
+We examined FDI records of 327 manufacturing firms in the Yangtze River Delta between 2018 and 2022.
+
+Investment scale declined 17.4% after 2020, but cited patents did not move in parallel. The gap is concentrated in high-tech industries; traditional manufacturing shows almost no change.
+
+The result suggests that converting external investment into internal R&D capacity depends on whether firms sustain their own R&D spending during the post-investment period.

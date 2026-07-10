@@ -2,6 +2,28 @@ interface:
   display_name: "Academic Humanizer"
   short_description: "Polish CN/EN academic prose and revise AIGC-risk passages"
   default_prompt: "Use $academic-humanizer to polish or revise this Chinese or English academic passage. Keep facts, citations, terminology, numbers, and academic register stable."
+  version: "0.2.0"
+  examples:
+    - id: english-abstract-polish
+      prompt: "Use $academic-humanizer to polish this English abstract for clarity and academic style while preserving the original meaning."
+    - id: chinese-paragraph-revise
+      prompt: "Use $academic-humanizer 帮我润色这段中文论文内容，保持事实、术语、引用和学术语体不变。"
+    - id: aigc-risk-paragraph
+      prompt: "Use $academic-humanizer to revise this Chinese thesis paragraph flagged as high AI risk. Keep facts, citations, terminology, and academic register."
+    - id: file-based-batch
+      prompt: "Use $academic-humanizer to scan this file with scripts/pattern_scan.py first, then rewrite the high-risk paragraphs section by section."
 
 policy:
   allow_implicit_invocation: true
+
+metadata:
+  language_support: ["zh", "en"]
+  scope: "academic prose only — abstracts, theses, literature reviews, methods, results, discussions, conclusions, technical reports"
+  not_a_detector: true
+  source_of_truth:
+    polishing: "references/polishing.md"
+    workflow: "references/workflow.md"
+    chinese_risk_patterns: "references/chinese-academic.md"
+    english_risk_patterns: "references/english-academic.md"
+    scanner: "scripts/pattern_scan.py"
+  tests: "tests/test_pattern_scan.py"
